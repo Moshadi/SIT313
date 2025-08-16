@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DEV@Deakin – Subscribe</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Join DEV@Deakin</h1>
+    <form id="subForm">
+      <input type="email" id="email" placeholder="Email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p id="msg"></p>
+  </main>
+  <script>
+    const f = document.getElementById('subForm');
+    const msg = document.getElementById('msg');
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = 'Sending...';
+      const email = document.getElementById('email').value.trim();
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      msg.textContent = res.ok ? 'Welcome email sent!' : (data.error || 'Failed.');
+    });
+  </script>
+</body>
+</html>

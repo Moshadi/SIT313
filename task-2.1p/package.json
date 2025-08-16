@@ -1,0 +1,20 @@
+{
+  "name": "task-2.1p",
+  "version": "1.0.0",
+  "description": "SIT313 Task 2.1P - Welcome email service",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "postmark": "^4.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "license": "ISC"
+}
